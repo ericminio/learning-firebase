@@ -13,7 +13,7 @@
       messagingSenderId: "825996076845"
     };
     firebase.initializeApp(config);
-    var news = firebase.database().ref('/news');
+    var news = firebase.database().ref('/news').limitToLast(2);
     
     news.once('value').then(function(snapshot) {
       console.log('once');
