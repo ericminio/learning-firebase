@@ -13,10 +13,13 @@
       messagingSenderId: "825996076845"
     };
     firebase.initializeApp(config);
-    var database = firebase.database();
+    var news = firebase.database().ref('/news');
     
-    firebase.database().ref('/news').once('value').then(function(snapshot) {
+    news.once('value').then(function(snapshot) {
       console.log(snapshot.val());
+    });
+    news.on('child_added', function(data) {
+      console.log(data);
     });
   </script>
 </body>
