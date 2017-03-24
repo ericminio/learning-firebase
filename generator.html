@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="app/lib/generator.css" rel="stylesheet" type="text/css">
+    </head>
+<body>
+  <h3>Generate news</h3>
+  <div id="form">
+      <label>Spread the world </label>
+      <input type="text" id="message"/>
+  </div>
+
+  <script src="app/lib/create.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAYx7b7qF47dy8vAnExOaFW5nQCP0EWriw",
+      authDomain: "sandbox-5f095.firebaseapp.com",
+      databaseURL: "https://sandbox-5f095.firebaseio.com",
+      storageBucket: "sandbox-5f095.appspot.com",
+      messagingSenderId: "825996076845"
+    };
+    firebase.initializeApp(config);
+
+    var input = document.getElementById("message");
+    input.focus();
+    input.onkeydown = function(event) {
+        if (event.keyCode == 13) {
+            create(document, firebase, +new Date());
+        }
+    };
+  </script>
+</body>
+</html>

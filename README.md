@@ -2,4 +2,4 @@
 
 ### Working software
 1. [news feed](https://ericminio.github.io/learning-firebase/)
-2. soon... news generator
+2. [news generator](https://ericminio.github.io/learning-firebase/generator.html)
