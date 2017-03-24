@@ -1,8 +1,9 @@
 <html>
 <body>
-  Hello Firebase
+  <h3>Recent activity</h3>
+  <div id="news"></div>
 
-  <script src="lib/push.js"></script>
+  <script src="app/lib/push.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
   <script>
     // Initialize Firebase
@@ -17,7 +18,7 @@
     var news = firebase.database().ref('/news').limitToLast(5);
 
     news.on('child_added', function(data) {
-      push(data.val());
+      push({id:data.key, content:data.val()}, document);
     });
   </script>
 </body>
