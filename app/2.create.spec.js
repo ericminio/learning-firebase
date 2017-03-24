@@ -1,6 +1,4 @@
 var expect = require('chai').expect;
-var sinon = require('sinon');
-require('chai').use(require('sinon-chai'));
 var jsdom = require("jsdom").jsdom;
 var path = require('path').join(__dirname, 'lib/create.js');
 var content = require('fs').readFileSync(path).toString();
