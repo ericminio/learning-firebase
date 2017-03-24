@@ -5,5 +5,9 @@ var push = function(news, document) {
     element.className = 'news';
 
     var target = document.getElementById('news');
+    var existing = document.querySelectorAll('.news');
+    if (existing.length == 5 ) {
+        target.removeChild(target.lastChild);
+    }
     target.insertBefore(element, target.firstChild);
 };
