@@ -30,12 +30,9 @@ describe('push', function() {
         var news;
 
         beforeEach(function() {
-            push({id:1, content:{message:'one'}}, document);
-            push({id:2, content:{message:'two'}}, document);
-            push({id:3, content:{message:'three'}}, document);
-            push({id:4, content:{message:'four'}}, document);
-            push({id:5, content:{message:'five'}}, document);
-            push({id:6, content:{message:'six'}}, document);
+            [1, 2, 3, 4, 5, 6].forEach(function(id) {
+                push({id:id, content:{message:'any'}}, document);
+            });
             news = document.querySelectorAll('.news');
         });
         it('has a limit of 5 news', function() {
