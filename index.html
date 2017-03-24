@@ -1,7 +1,8 @@
 <html>
 <body>
-  Hello Firebase
+  Hello Firebase  
   
+  <script src="push.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
   <script>
     // Initialize Firebase
@@ -13,17 +14,10 @@
       messagingSenderId: "825996076845"
     };
     firebase.initializeApp(config);
-    var news = firebase.database().ref('/news').limitToLast(2);
+    var news = firebase.database().ref('/news').limitToLast(5);
     
-    news.once('value').then(function(snapshot) {
-      console.log('once');
-      console.log(snapshot.key);
-      console.log(snapshot.val());
-    });
-    news.on('child_added', function(data) {
-      console.log('news added');
-      console.log(data.key);
-      console.log(data.val());
+    news.on('child_added', function(data) {      
+      push(data.val());
     });
   </script>
 </body>
